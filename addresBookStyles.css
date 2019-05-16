@@ -7,13 +7,17 @@
     flex-wrap:wrap;
 }
 
-#personList div{
-    width:50px;
-    height: 120px;
+#personList > div{
+    width:150px;
+    height: 150px;
     display:flex;
     flex-direction: column;
-    align-items: center;
-    margin: 20px; 
+    align-items: center; 
+    margin: 20px 0px;
+}
+
+div .entry {
+    margin: 0px;
 }
 
 img{
@@ -29,4 +33,8 @@ img{
 
 .entry:hover{
     display:none;
+}
+
+p{
+    font-size: 18px;
 }

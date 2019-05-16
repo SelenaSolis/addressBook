@@ -16,33 +16,45 @@ function get(){
           const person = document.createElement("div");
           person.className = "entry";
           const image = document.createElement("img");
-          // const bttn = document.createElement("button");
           const moreInfoDiv = document.createElement("div");
+          const phoneDiv = document.createElement("div");
+          const dobDiv = document.createElement("div");
+          const addressDiv = document.createElement("div");
+          const nameP = document.createElement("p");
           const name = document.createTextNode(item.name.first + " " + item.name.last);
-          const cellNum = document.createTextNode(item.cell);
+          const cellNum = document.createTextNode("cell phone: " + item.cell);
+          const dob = document.createTextNode("birthday: " + item.dob.date.slice(5, 7) + "-" + item.dob.date.slice(8, 10) + "-" + item.dob.date.slice(0, 4));
+          const address = document.createTextNode("address: " + item.location.street + " " + item.location.city + ", " + item.location.state + " " + item.location.postcode);
           image.src = item.picture.thumbnail;
-          image.onmouseover = function(){
-            moreInfoDiv.style.display = "block";
-            moreInfoDiv.style.width = "200px";
-            moreInfoDiv.style.height = "200px";
-            person.style.width = "200px";
-            person.style.height = "200px";
-
-          }
+          
           moreInfoDiv.style.display = "none";
           moreInfoDiv.className = "info";
-          moreInfoDiv.appendChild(cellNum);
-          // bttn.innerHTML = "More info";
-          // bttn.onclick = function() {
-          //     // person.style.display = "none";
-          //     moreInfoDiv.style.display = "block";
-          // }
-          
+          nameP.appendChild(name);
+          phoneDiv.appendChild(cellNum);
+          dobDiv.appendChild(dob);
+          addressDiv.appendChild(address);
+          moreInfoDiv.appendChild(phoneDiv);
+          moreInfoDiv.appendChild(dobDiv);
+          moreInfoDiv.appendChild(addressDiv)
           person.appendChild(image);
-          person.appendChild(name);
-          // person.appendChild(bttn);
+          person.appendChild(nameP);
           person.appendChild(moreInfoDiv);
           user.append(person);
+
+          person.onmouseover = function(){
+            moreInfoDiv.style.display = "block";
+            moreInfoDiv.style.width = "300px";
+            moreInfoDiv.style.height = "200px";
+            person.style.width = "300px";
+            person.style.height = "200px";
+            nameP.style.fontSize = "30px";
+          }
+          person.onmouseout = function(){
+            moreInfoDiv.style.display = "none";
+            person.style.width = "150px";
+            person.style.height = "150px";
+            nameP.style.fontSize = "18px";
+          }
         })
       })
 }
@@ -58,12 +70,47 @@ function getMultiple(){
       newArr.map(item => {
         const user = document.getElementById("personList");
         const person = document.createElement("div");
+        person.className = "entry";
         const image = document.createElement("img");
+        const moreInfoDiv = document.createElement("div");
+        const phoneDiv = document.createElement("div");
+        const dobDiv = document.createElement("div");
+        const addressDiv = document.createElement("div");
+        const nameP = document.createElement("p");
         const name = document.createTextNode(item.name.first + " " + item.name.last);
+        const cellNum = document.createTextNode("CELL PHONE: " + item.cell);
+        const dob = document.createTextNode("BIRTHDAY: " + item.dob.date.slice(5, 7) + "-" + item.dob.date.slice(8, 10) + "-" + item.dob.date.slice(0, 4));
+        const address = document.createTextNode("ADDRESS: " + item.location.street + " " + item.location.city + ", " + item.location.state + " " + item.location.postcode);
         image.src = item.picture.thumbnail;
+        
+        moreInfoDiv.style.display = "none";
+        moreInfoDiv.className = "info";
+        nameP.appendChild(name);
+        phoneDiv.appendChild(cellNum);
+        dobDiv.appendChild(dob);
+        addressDiv.appendChild(address);
+        moreInfoDiv.appendChild(phoneDiv);
+        moreInfoDiv.appendChild(dobDiv);
+        moreInfoDiv.appendChild(addressDiv)
         person.appendChild(image);
-        person.appendChild(name);
+        person.appendChild(nameP);
+        person.appendChild(moreInfoDiv);
         user.append(person);
+
+        person.onmouseover = function(){
+          moreInfoDiv.style.display = "block";
+          moreInfoDiv.style.width = "300px";
+          moreInfoDiv.style.height = "200px";
+          person.style.width = "300px";
+          person.style.height = "200px";
+          nameP.style.fontSize = "30px";
+        }
+        person.onmouseout = function(){
+          moreInfoDiv.style.display = "none";
+          person.style.width = "150px";
+          person.style.height = "150px";
+          nameP.style.fontSize = "18px";
+        }
       })
     })
 
