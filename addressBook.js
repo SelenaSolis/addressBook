@@ -10,7 +10,6 @@ function get(){
       .then( data => {
         document.getElementById("personList").innerHTML = "";
         newArr.push(data.results["0"]);
-        console.log(newArr);
         newArr.map(item => {
           const user = document.getElementById("personList");
           const person = document.createElement("div");
