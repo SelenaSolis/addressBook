@@ -23,7 +23,7 @@ describe("get()", function () {
     it ('has correct base URL', function(){
         assert.deepEqual(baseURL, "https://randomuser.me/api/?results=")
     })
-    it('tests for correct address', () => {
+    it('has correct address', () => {
         const errFetch = url =>{
             assert("https://randomuser.me/api/results=");
             assert.equal(get(errFetch), "err")
